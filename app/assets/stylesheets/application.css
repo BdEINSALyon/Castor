@@ -13,3 +13,7 @@
  *= require bs
  *= require_self
  */
+.head{
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
