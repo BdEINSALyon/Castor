@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 gem 'rails_admin'
+gem 'rails_admin_import'
 gem 'has_secure_token'
 gem 'mailgun_rails'
 gem 'premailer-rails'
