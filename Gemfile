@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'rails_admin'
 gem 'has_secure_token'
+gem 'mailgun_rails'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap-sass-extras'

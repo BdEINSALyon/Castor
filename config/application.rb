@@ -23,5 +23,11 @@ module Castor
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.assets.initialize_on_precompile = false
+
+    config.action_mailer.delivery_method = :mailgun
+    config.action_mailer.mailgun_settings = {
+        api_key: ENV['MAILGUN_API'],
+        domain: ENV['MAILGUN_DOMAIN']
+    }
   end
 end
