@@ -26,7 +26,7 @@ class VoteController < ApplicationController
     now = Time.now
     opening = Time.new(2016, 5, 30, 0, 0, 0, '+02:00')
     closing = Time.new(2016, 6, 5, 23, 59, 59, '+02:00')
-    now > opening && now < closing
+    redirect_to :closed unless now > opening && now < closing
   end
 
   private
