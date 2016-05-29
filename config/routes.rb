@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'vote/:token' => 'vote#vote', as: :vote
+  post 'vote/:token' => 'vote#register_vote', as: :register_vote
+  get 'thanks' => 'vote#thanks', as: :thanks
+
   mount RailsAdmin::Engine => '/backend', as: 'rails_admin'
   devise_for :admins
   get 'home/index'
