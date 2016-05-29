@@ -24,8 +24,8 @@ class VoteController < ApplicationController
   private
   def is_open?
     now = Time.now
-    opening = Time.new(ENV['OPENING'])
-    closing = Time.new(ENV['CLOSING'])
+    opening = Time.parse(ENV['OPENING'])
+    closing = Time.parse(ENV['CLOSING'])
     redirect_to :closed unless now > opening && now < closing
   end
 
@@ -33,7 +33,7 @@ class VoteController < ApplicationController
   def set_voter
     @voter = Voter.find_by_token(params[:token])
     if @voter.nil?
-      render :status => :forbidden, :text => 'Invalid token'
+      raise ActiveRecord::RecordNotFound
     end
     if @voter.voted
       redirect_to :thanks
