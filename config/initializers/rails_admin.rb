@@ -2,11 +2,13 @@ RailsAdmin.config do |config|
 
   ### Popular gems integration
 
+  config.main_app_name = ["Castor", "BackOffice"]
+
   ## == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # config.current_user_method(&:current_user)
+  config.authenticate_with do
+    warden.authenticate! scope: :admin
+  end
+  config.current_user_method(&:current_admin)
 
   ## == Cancan ==
   # config.authorize_with :cancan
