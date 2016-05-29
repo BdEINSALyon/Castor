@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  get 'manage' => 'manage#index', as: :manage
+  post 'manage' => 'manage#register_voter', as: :register_voter
+  get 'results' => 'manage#results', as: :results
+
   get 'vote/:token' => 'vote#vote', as: :vote
   post 'vote/:token' => 'vote#register_vote', as: :register_vote
   get 'thanks' => 'vote#thanks', as: :thanks

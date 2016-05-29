@@ -14,3 +14,60 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+$(function(){
+    $('#launch').click(function(){
+        console.log('load!');
+        $('#select-form').hide();
+        $('#progress').toggleClass('hide');
+        parseCSV($('#csv-file')[0]);
+        return false;
+    })
+});
+
+/**
+ * Parse CSV and put data in table.
+ */
+function parseCSV(filePath) {
+    console.log(filePath);
+    // Read file and then (callback) fill the table
+    readFile(filePath, function (e) {
+        const data = $.csv.toObjects(e.target.result);
+        var i = 0;
+        var start = new Date();
+        var loadNext = function(){
+            var $progress = $('.progress-bar');
+            if(i>=data.length){
+                $progress.css('width','100%').html('It\'s the end');
+                setTimeout(function(){
+                    $('#select-form').show();
+                    $('#progress').toggleClass('hide');
+                },5000);
+                return;
+            }
+            var v = data[i];
+            i++;
+            var position = Math.round((i/data.length)*100);
+            $progress.css('width',position+'%').html(position+'%');
+            if(v.email)
+                $.post('',{voter:{first_name:v.first_name, last_name: v.last_name, email: v.email}},function(result){
+                    console.log(result);
+                    loadNext();
+                });
+            else
+                loadNext();
+        };
+        loadNext();
+    });
+}
+
+/**
+ * read text input
+ */
+function readFile(filePath, onLoadCallback) {
+    var reader = new FileReader();
+    reader.onload = onLoadCallback;
+    if (filePath.files && filePath.files[0]) {
+        reader.readAsText(filePath.files[0]);
+    }
+}
