@@ -8,6 +8,6 @@ class VoterMailer < ApplicationMailer
   # @param [Voter] voter
   def vote_email(voter)
     @voter = voter
-    mail to: @voter, subject: (ENV['EMAIL_SUBJECT'] || 'Elections BdE INSA Lyon')
+    mail to: @voter.email, subject: (ENV['EMAIL_SUBJECT'] || 'Elections BdE INSA Lyon') unless voter.nil?
   end
 end
