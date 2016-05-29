@@ -1,5 +1,6 @@
 class VoteController < ApplicationController
 
+  before_filter :is_open?, only: [:vote, :register_vote]
   before_filter :set_voter, only: [:vote, :register_vote]
 
   def vote
@@ -15,6 +16,17 @@ class VoteController < ApplicationController
   end
 
   def thanks
+  end
+
+  def closed
+  end
+
+  private
+  def is_open?
+    now = Time.now
+    opening = Time.new(2016, 5, 30, 0, 0, 0, '+02:00')
+    closing = Time.new(2016, 6, 5, 23, 59, 59, '+02:00')
+    now > opening && now < closing
   end
 
   private
