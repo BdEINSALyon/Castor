@@ -44,11 +44,11 @@
               </div>
               <div class="col-xs-10">
                 <p><b><%= list.name %></b> composée de <span><%= list.participants %></span></p>
-                <%- if list.facebook %>
+                <%- unless list.facebook.nil? or list.facebook.empty? %>
                   <p><a href="<%= list.facebook %>">Voir sur Facebook</a></p>
                 <% end %>
-                <%- if list.website %>
-                  <p><a href="<%= list.facebook %>">Voir le site web</a></p>
+                <%- unless list.website.nil? or list.website.empty? %>
+                  <p><a href="<%= list.website %>">Voir le site web</a></p>
                 <% end %>
               </div>
             </div>
