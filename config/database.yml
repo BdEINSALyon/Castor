@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: Castor_production
-  username: Castor
-  password: <%= ENV['CASTOR_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
