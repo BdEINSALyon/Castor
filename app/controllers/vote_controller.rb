@@ -3,7 +3,7 @@ class VoteController < ApplicationController
   before_filter :set_voter, only: [:vote, :register_vote]
 
   def vote
-    @listings = Listing.all
+    @lists = Listing.all
     @vote = Vote.new
   end
 

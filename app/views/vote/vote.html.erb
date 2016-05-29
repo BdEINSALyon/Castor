@@ -25,8 +25,8 @@
 
 <p class="clearfix" style="margin-top:20px;">Cette année, 6 listes sont candidates, retrouve leur programme sur leur page Facebook ou site !</p>
 
-<% form_for(@vote, url:{action: :register_vote, token: @voter.token}) do |f| %>
-    <% @listings.each do |list| %>
+<%= form_for(@vote, url:{action: :register_vote, token: @voter.token}) do |f| %>
+    <% Listing.all.each do |list| %>
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="row">
