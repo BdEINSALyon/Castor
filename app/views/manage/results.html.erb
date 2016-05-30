@@ -1,4 +1,4 @@
-<div id="chart_div" style="margin:0 auto; width: 400px;"></div>
+<div id="chart_div" style="margin:0 auto; width: 800px;"></div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 
@@ -25,13 +25,16 @@
 
     // Set chart options
     var options = {'title':'Resultats',
-      'width':400,
-      'height':300};
+      is3D: true,
+      pieSliceText: ['label','value'],
+      'width':800,
+      'height':600};
 
     // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
     chart.draw(data, options);
+    document.getElementById('png').innerHTML = '<a href="' + chart.getImageURI() + '" target="_blank">Printable version</a>';
   }
 </script>
-
+<div id='png' class="text-center"></div>
 <div class="text-center">Participation&nbsp;: <%= @participation %>%</div>
