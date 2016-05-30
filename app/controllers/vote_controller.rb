@@ -10,7 +10,11 @@ class VoteController < ApplicationController
 
   # noinspection RailsChecklist01
   def register_vote
-    Vote.create! vote_params
+    begin
+      Vote.create! vote_params
+    rescue
+      # ignored
+    end
     @voter.update! voted: true
     redirect_to :thanks
   end
@@ -41,6 +45,6 @@ class VoteController < ApplicationController
   end
 
   def vote_params
-    params.require(:vote).permit(:listing_id)
+    params.fetch(:vote).permit(:listing_id)
   end
 end
