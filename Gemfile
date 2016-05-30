@@ -31,6 +31,9 @@ gem 'mailgun_rails'
 gem 'premailer-rails'
 gem 'nokogiri'
 
+gem 'fabrication'
+gem 'faker'
+
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap-sass-extras'
 
