@@ -24,15 +24,35 @@ $(function(){
         return false;
     });
 
-    var last_selected = null;
+    if(document.getElementById('new_vote')) {
 
-    $('input[type="radio"]').click(function(e){
-        if(e.target.checked && e.target == last_selected) {
-            $(e.target).prop('checked', false);
-        } else {
-            last_selected = e.target;
-        }
-    });
+        var last_selected = null;
+
+        $('input[type="radio"]').click(function (e) {
+            if (e.target.checked && e.target == last_selected) {
+                $(e.target).prop('checked', false);
+            } else {
+                last_selected = e.target;
+            }
+        });
+
+        var can_submit = false;
+
+        $('#confirmButton').click(function(){
+            can_submit = true;
+            $('form').submit();
+            $('#confirmDialog').modal('hide');
+        });
+
+        $('form').submit(function(){
+            if(!can_submit && $(this).serializeArray().length < 3){
+                $('#confirmDialog').modal('show');
+            } else {
+                can_submit = true;
+            }
+            return can_submit;
+        });
+    }
 });
 
 /**
