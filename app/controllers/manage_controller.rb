@@ -11,7 +11,14 @@ class ManageController < ApplicationController
     @success = @voter.save
   end
 
+  # noinspection RailsChecklist01
   def results
+    @participation = (((Voter.where(voted: true).count.to_d)/(Voter.count.to_d)) * 100.0).to_d.round 2
+    @results = {}
+    @results['Votes Blancs'] = Voter.where(voted: true).count - Vote.count
+    Listing.all.each do |list|
+      @results[list.name] = list.votes.count
+    end
   end
 
   private
