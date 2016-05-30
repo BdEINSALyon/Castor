@@ -22,7 +22,17 @@ $(function(){
         $('#progress').toggleClass('hide');
         parseCSV($('#csv-file')[0]);
         return false;
-    })
+    });
+
+    var last_selected = null;
+
+    $('input[type="radio"]').click(function(e){
+        if(e.target.checked && e.target == last_selected) {
+            $(e.target).prop('checked', false);
+        } else {
+            last_selected = e.target;
+        }
+    });
 });
 
 /**
