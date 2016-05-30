@@ -31,6 +31,7 @@ $(function(){
         $('input[type="radio"]').click(function (e) {
             if (e.target.checked && e.target == last_selected) {
                 $(e.target).prop('checked', false);
+                last_selected = null;
             } else {
                 last_selected = e.target;
             }
