@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+  admin:
+    actions:
+      send_email:
+        title: "Envoyer un mail"
+        menu: "Envoyer Lien"
+        breadcrumb: "Envoyer un mail"
+        link: "Envoyer un mail"

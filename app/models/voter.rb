@@ -9,6 +9,11 @@ class Voter < ActiveRecord::Base
     end
   end
 
+  # Resend link to user
+  def send_link
+    VoterMailer.link_email(self).deliver
+  end
+
   private
   def send_email
     VoterMailer.vote_email(self).deliver

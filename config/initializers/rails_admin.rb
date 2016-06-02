@@ -35,5 +35,17 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+
+    member :send_email do
+      only ['Voter']
+      i18n_key :send_email
+      controller do
+        Proc.new do
+          @object.send_link
+          redirect_to :index
+        end
+      end
+      link_icon 'icon-envelope'
+    end
   end
 end

@@ -1,0 +1,12 @@
+<p>Cher(e) <%= @voter.first_name %> <%= @voter.last_name %>,</p>
+
+<p>Tu as demandé à ce qu'on te renvoie ton lien de vote, le voici&nbsp;:</p>
+
+<p class="text-center"><%= link_to vote_url(token: @voter.token), vote_url(token: @voter.token) %></p>
+
+<p>Le vote ferme dimanche 5 juin à 23h59.</p>
+
+<p>Si tu souhaites plus d'informations sur les élections ou si tu as un problème pour voter n'hésite pas à envoyer un mail à <a href="mailto:president@bde-insa-lyon.fr">president@bde-insa-lyon.fr</a></p>
+
+<p>Cordialement,<br>
+  Le BdE INSA Lyon</p>

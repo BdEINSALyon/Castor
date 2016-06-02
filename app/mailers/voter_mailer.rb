@@ -10,4 +10,9 @@ class VoterMailer < ApplicationMailer
     @voter = voter
     mail to: @voter.email, subject: (ENV['EMAIL_SUBJECT'] || 'Elections BdE INSA Lyon') unless voter.nil?
   end
+
+  def link_email(voter)
+    @voter = voter
+    mail to: @voter.email, subject: (ENV['EMAIL_SUBJECT'] || 'Elections BdE INSA Lyon') unless voter.nil?
+  end
 end
