@@ -21,6 +21,18 @@ class ManageController < ApplicationController
     end
   end
 
+  def send_mail_to_all
+    if request.post?
+      Voter.to_a.each do |user|
+        if user.voted
+          VoterMailer.thanks_email(user).deliver_later
+        else
+          VoterMailer.reminder_email(user).deliver_later
+        end
+      end
+    end
+  end
+
   private
   def voter_params
     params.require(:voter).permit(:first_name, :last_name, :email)

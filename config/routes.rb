@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'vote/:token' => 'vote#register_vote', as: :register_vote
   get 'thanks' => 'vote#thanks', as: :thanks
   get 'closed' => 'vote#closed', as: :closed
+  match 'reminder', to: 'manage#send_mail_to_all', via: [:get, :post]
 
   mount RailsAdmin::Engine => '/backend', as: 'rails_admin'
   devise_for :admins
