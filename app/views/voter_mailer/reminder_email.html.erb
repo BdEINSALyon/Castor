@@ -1,12 +1,12 @@
 <p>Cher(e) <%= @voter['first_name'] %> <%= @voter['last_name'] %>,</p>
 
-<p>Nous te rappelons qu'en tant qu'adhérent au BdE de l'INSA, tu es invité à voter aux élections du BdE. Pour voter, il te suffit de suivre le lien suivant :</p>
+<p>Nous te rappelons qu'en tant qu'adhérent au BdE de l'INSA, tu es invité(e) à voter aux élections du BdE. Pour voter, il te suffit de suivre le lien suivant :</p>
 
 <p class="text-center"><%= link_to vote_url(token:  @voter['token'] ), vote_url(token: @voter['token']) %></p>
 
 <p>Attention, tu as jusqu'au 5 juin (dimanche soir) 23h59 pour voter !</p>
 
-<p>Sur le vote tu trouvera aussi une explication de la méthode d'élection ainsi que la composition de chaque liste. Si tu souhaites plus d'informations sur les élections ou si tu as un problème pour voter n'hésite pas à envoyer un mail à <a href="mailto'president'@bde-insa-lyon.fr">president@bde-insa-lyon.fr</a></p>
+<p>Sur le vote tu trouveras aussi une explication de la méthode d'élection ainsi que la composition de chaque liste. Si tu souhaites plus d'informations sur les élections ou si tu as un problème pour voter n'hésite pas à envoyer un mail à <a href="mailto'president'@bde-insa-lyon.fr">president@bde-insa-lyon.fr</a></p>
 
 <p>Cordialement,<br>
   Le BdE INSA Lyon</p>
