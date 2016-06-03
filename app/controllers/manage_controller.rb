@@ -23,13 +23,14 @@ class ManageController < ApplicationController
 
   def send_mail_to_all
     if request.post?
-      Voter.to_a.each do |user|
+      Voter.all.to_a.each do |user|
         if user.voted
-          VoterMailer.thanks_email(user).deliver_later
+          VoterMailer.thanks_email(user).deliver_later unless user.thank_mail_sent
         else
           VoterMailer.reminder_email(user).deliver_later
         end
       end
+      Voter.where(voted:true).update_all(thank_mail_sent:true)
     end
   end
 
