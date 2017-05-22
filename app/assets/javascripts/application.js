@@ -46,7 +46,7 @@ $(function(){
         });
 
         $('form').submit(function(){
-            if(!can_submit && $(this).serializeArray().length < 3){
+            if(!can_submit){
                 $('#confirmDialog').modal('show');
             } else {
                 can_submit = true;

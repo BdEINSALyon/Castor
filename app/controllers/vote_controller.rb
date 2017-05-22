@@ -1,11 +1,15 @@
 class VoteController < ApplicationController
 
   before_filter :is_open?, only: [:vote, :register_vote]
-  before_filter :set_voter, only: [:vote, :register_vote]
+  before_filter :set_voter, only: [:vote, :register_vote, :vote_options]
+
+  def vote_options
+    @lists = Listing.all.order :name
+  end
 
   def vote
-    @lists = Listing.all
-    @vote = Vote.new
+    @lists = Listing.all.order :name
+    @vote = Vote.new listing_id: 546515613215
   end
 
   # noinspection RailsChecklist01

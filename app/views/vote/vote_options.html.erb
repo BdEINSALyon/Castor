@@ -1,0 +1,98 @@
+<h1 class="text-center">Elections BdE INSA Lyon</h1>
+<p>Chers adhérent(e)s,</p>
+<p>Comme chaque année, le Bureau des Elèves procède au renouvellement du collège des membres adhérents,
+  et c'est à vous de voter !</p>
+<p>Pour information, le collège des membres adhérents compose la partie majoritaire dans le conseil
+  d’administration du BdE. Les listes sont composées de 5 à 9 membres. Le collège des membres actifs vient compléter
+  le conseil d’administration avec n-1 membres par rapport au collège des membres adhérents.</p>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 col-lg-2 col-lg-offset-5 col-sm-6 col-sm-offset-3">
+    <a class="btn btn-primary btn-block" role="button" data-toggle="collapse" href="#moreAbout" aria-expanded="false" aria-controls="collapseExample">
+      En savoir plus
+    </a>
+  </div>
+</div>
+<p></p>
+<div class="collapse clearfix" id="moreAbout">
+
+  <div class="row">
+    <div class="col-md-6"><%= image_tag 'election_bde.png', width: '100%' %></div>
+    <div class="col-md-6">
+      <div class="well">
+        <h5>Article 8 : Modalités des élections du BdE.</h5>
+
+        <p>Les élections du collège des membres adhérents du BdE doivent intervenir au plus tard le quinze juin de
+          chaque année. La date précise est fixée par le CA au plus tard le quinze avril. L'annonce des élections se
+          fera au moins quatre semaines avant celles-ci par affichage et si possible, dans le Post’it. Le dépôt des
+          listes se fait par lettre adressée au président du BdE, et ce jusqu’à deux semaines avant le début des
+          élections. La recevabilité des listes sera vérifiée par le bureau. Seuls les membres adhérents du BdE au cours
+          de l’année de leur éventuel mandat peuvent se déclarer candidats. Une personne ne pourra se présenter que sur
+          une seule liste, chaque liste étant composée d’un minimum de cinq personnes, et d’un maximum de neuf
+          personnes.</p>
+
+        <p>Les membres adhérents disposeront d’une semaine pour voter sur le site Internet du BdE. La distribution de
+          tracts concernant les élections est interdite le jour des élections. Tout affichage concernant des candidats
+          aux élections est interdit sur et dans les bureaux de vote.</p>
+
+        <p>En cas de fraude, le CA du BdE pourra disqualifier la liste ayant commis la fraude. Les votes exprimés en sa
+          faveur seront considérés comme nuls. L’élection du collège des membres adhérents se fera à la majorité
+          relative en un seul tour.</p>
+
+        <p>Le panachage des listes est interdit ; le vote se fait à la liste. Toutes les listes raturées seront comptées
+          comme nulles.</p>
+      </div>
+      <div class="well">
+        <h5>Comment voter ?</h5>
+        <p>Vous pouvez cocher ou décocher une liste ou le vote blanc. Vous ne pouvez pas voter pour plus d'une
+          liste.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p style="clear: both"></p>
+
+<p class="clearfix" style="margin-top:20px;">Cette année, <%= @lists.length %> listes sont candidates, retrouve leur
+  programme sur leur page Facebook ou site !</p>
+
+<div class="row">
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <%= link_to "Aller voter", vote_url(token: @voter.token), class: %w(btn btn-block btn-primary) %>
+  </div>
+</div>
+<p>&nbsp;</p>
+<div class="row">
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <% @lists.each do |list| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4><%= list.name %></h4>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-12">
+                <p><%= simple_format(list.description) %></p>
+                <p><b>Membres de la liste&nbsp;:</b> <%= simple_format(list.participants) %></p>
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <%- unless list.facebook.nil? or list.facebook.empty? %>
+                <a href="<%= list.facebook %>" target="_blank">Facebook</a>
+            <% end %>
+            <%- unless list.website.nil? or list.website.empty? %>
+                <%- unless list.facebook.nil? or list.facebook.empty? %> -
+                <% end %><a href="<%= list.website %>" target="_blank">Site web</a>
+            <% end %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <%= link_to "Aller voter", vote_url(token: @voter.token), class: %w(btn btn-block btn-primary) %>
+  </div>
+</div>

@@ -12,6 +12,7 @@
  *
  *= require bs
  *= require_self
+ *= require vote
  */
 .head{
     margin-top: 20px;

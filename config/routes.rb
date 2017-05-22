@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post 'manage' => 'manage#register_voter', as: :register_voter
   get 'results' => 'manage#results', as: :results
 
+  get 'hello/:token' => 'vote#vote_options', as: :hello
   get 'vote/:token' => 'vote#vote', as: :vote
   post 'vote/:token' => 'vote#register_vote', as: :register_vote
   get 'thanks' => 'vote#thanks', as: :thanks
