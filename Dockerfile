@@ -13,6 +13,9 @@ RUN bundle install
 
 ADD . /app
 
+ENV TZ=Europe/Paris
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 ENV RAILS_ENV="production"
 ENV OPENING="Mon May 29 00:01:00 GMT+2 2017"
 ENV CLOSING="Mon Jun 4 23:59:00 GMT+2 2017"
