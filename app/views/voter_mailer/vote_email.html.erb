@@ -1,6 +1,6 @@
 <p>Cher(e) <%= @voter.first_name %> <%= @voter.last_name %>,</p>
 
-<p>En tant qu'adhérent au BdE de l'INSA, tu es invité(e) à voter aux élections du BdE. Pour voter il te suffit de suivre le lien suivant :</p>
+<p>En tant qu'adhérent(e) au BdE, tu es invité(e) à voter à ses élections. Pour cela, il te suffit de suivre le lien suivant :</p>
 
 <p class="text-center"><%= link_to hello_url(token: @voter.token), hello_url(token: @voter.token) %></p>
 
