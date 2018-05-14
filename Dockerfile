@@ -17,8 +17,8 @@ ENV TZ=Europe/Paris
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 ENV RAILS_ENV="production"
-ENV OPENING="Mon May 29 00:01:00 GMT+2 2017"
-ENV CLOSING="Mon Jun 4 23:59:00 GMT+2 2017"
+ENV OPENING="Mon May 28 00:01:00 GMT+2 2018"
+ENV CLOSING="Mon Jun 3 23:59:00 GMT+2 2018"
 ENV SECRET_KEY="qdqs1432c1q354df3s54fq3s5df46q8z4s3f5ds4f35q4d435qvd6f43gv4wdf34gvdwf43g67qer684gv65w4cf34vfw"
 ENV SECRET_KEY_BASE="qdqs1432c1q354df3s54fq3s5df46q8z4s3f5ds4f35q4d435qvd6f43gv4wdf34gvdwf43g67qer684gv65w4cf34vfw"
 ENV MAILGUN_API=""
