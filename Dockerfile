@@ -25,5 +25,6 @@ ENV SECRET_KEY_BASE="qdqs1432c1q354df3s54fq3s5df46q8z4s3f5ds4f35q4d435qvd6f43gv4
 ENV MAILGUN_API=""
 ENV MAILGUN_DOMAIN="elections.bde-insa-lyon.fr"
 ENV DATABASE_URL=postgres://postgres@db/postgres
+ENV DOMAIN="elections.bde-insa-lyon.fr"
 
 CMD bash -c "bundle exec rake assets:precompile && bundle exec rake db:migrate && bundle exec rails s -p 3000 -b '0.0.0.0'"
