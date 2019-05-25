@@ -68,6 +68,7 @@ function parseCSV(filePath) {
             header: true,
             complete: function (results, parser) {
                 const voters = results.data;
+                console.log(voters);
                 if(voters) {
                     var i = 0;
                     var start = new Date();
